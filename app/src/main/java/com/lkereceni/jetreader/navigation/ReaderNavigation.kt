@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.lkereceni.jetreader.screens.ReaderSplashScreen
 import com.lkereceni.jetreader.screens.home.ReaderHomeScreen
+import com.lkereceni.jetreader.screens.login.ReaderLoginScreen
 
 @Composable
 fun ReaderNavigation() {
@@ -17,6 +18,10 @@ fun ReaderNavigation() {
     ) {
         composable(ReaderScreens.SplashScreen.name) {
             ReaderSplashScreen(navController = navController)
+        }
+
+        composable(ReaderScreens.LoginScreen.name) {
+            ReaderLoginScreen(navController = navController)
         }
 
         composable(ReaderScreens.ReaderHomeScreen.name) {

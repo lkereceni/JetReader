@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.lkereceni.jetreader.navigation.ReaderScreens
 import kotlinx.coroutines.delay
 
 @Composable
@@ -40,6 +41,7 @@ fun ReaderSplashScreen(
             )
         )
         delay(2000L)
+        navController.navigate(ReaderScreens.LoginScreen.name)
     }
     Surface(
         modifier = Modifier
