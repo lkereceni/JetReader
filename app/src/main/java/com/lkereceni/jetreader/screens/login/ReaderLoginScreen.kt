@@ -24,10 +24,14 @@ import com.lkereceni.jetreader.R
 import com.lkereceni.jetreader.components.EmailInput
 import com.lkereceni.jetreader.components.PasswordInput
 import com.lkereceni.jetreader.components.ReaderLogo
+import com.lkereceni.jetreader.navigation.ReaderScreens
 
 @ExperimentalComposeUiApi
 @Composable
-fun ReaderLoginScreen(navController: NavController) {
+fun ReaderLoginScreen(
+    navController: NavController,
+    viewModel: LoginScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+) {
     val showLoginForm = rememberSaveable { mutableStateOf(true) }
 
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -42,7 +46,9 @@ fun ReaderLoginScreen(navController: NavController) {
                     loading = false,
                     isCreateAccount = false
                 ) { email, password ->
-                    //Todo FB login
+                    viewModel.signInWithEmailAndPassword(email, password) {
+                        navController.navigate(ReaderScreens.ReaderHomeScreen.name)
+                    }
                 }
             } else {
                 UserForm(

@@ -1,5 +1,6 @@
 package com.lkereceni.jetreader.screens.home
 
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 
@@ -7,5 +8,5 @@ import androidx.navigation.NavController
 fun ReaderHomeScreen(
     navController: NavController
 ) {
-
+    Text(text = "Home Screen")
 }

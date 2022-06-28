@@ -17,14 +17,17 @@ class LoginScreenViewModel: ViewModel() {
 
     fun signInWithEmailAndPassword(
         email: String,
-        password: String
+        password: String,
+        home: () -> Unit
     ) = viewModelScope.launch {
         try {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
                     task ->
                     if (task.isSuccessful) {
-                        TODO("take them home")
+                        Log.d("Firebase", "signInWithEmailAndPassword: WOO! ${task.result}")
+                        //Todo: take them home
+                        home()
                     } else {
                         Log.d("Firebase", "signInWithEmailAndPassword: ${task.result}")
                     }
