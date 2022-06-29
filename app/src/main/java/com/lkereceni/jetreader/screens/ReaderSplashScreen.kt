@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.google.firebase.auth.FirebaseAuth
 import com.lkereceni.jetreader.components.ReaderLogo
 import com.lkereceni.jetreader.navigation.ReaderScreens
 import kotlinx.coroutines.delay
@@ -42,6 +43,7 @@ fun ReaderSplashScreen(
             )
         )
         delay(2000L)
+
         navController.navigate(ReaderScreens.LoginScreen.name)
     }
     Surface(
